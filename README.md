@@ -25,6 +25,11 @@ npx nx run-many -t lint,test,build
 npm run e2e
 ```
 
+## Frontend UX Guidelines (Remove if not in a frontend project)
+Always follow the latest UX patterns to build accessible, usable web applications.
+[UX Pattern Index](https://uxpatterns.dev/en/llms.txt)
+[Full UX Pattern Reference](https://uxpatterns.dev/en/llms-full.txt)
+
 ## Common Node.js Commands (Remove if not in Node.js project)
 Check package.json for available scripts. Common development commands include:
 - `npm run dev` / `npm start` - Start development server
