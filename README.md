@@ -1,11 +1,28 @@
 # CLAUDE.md
 
 <!--
-How to Use This Template:
-1. Include https://github.com/tehw0lf/claude-templates.git as a submodule
-2. Copy .claude-templates/README.md (this file) to your project's root directory as CLAUDE.md
-3. Customize the pre-commit validation commands for your project
-4. Add any project-specific instructions or run /init to append to CLAUDE.md
+Installation:
+Global use (Claude Code only): add `export CLAUDE_ADDITIONAL_DIRS="/path/to/claude-templates"` to your shell run configuration.
+Global use with MCP Server (Claude Code & Claude Desktop): 
+  {
+    "mcpServers": {
+      "filesystem": {
+        "command": "npx",
+        "args": [
+          "-y",
+          "@modelcontextprotocol/server-filesystem",
+          "/path/to/claude-templates",
+        ]
+      }
+    }
+  }
+
+Local use: `git submodule init https://github.com/tehw0lf/claude-templates.git`
+
+Usage:
+Local use only: Copy .claude-templates/README.md (this file) to your project's root directory as CLAUDE.md when using as submodule
+Run /init to let Claude append project specific information to CLAUDE.md
+Add pre-commit validation commands for your project to CLAUDE.md
 -->
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository. 
@@ -17,27 +34,32 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 **IMPORTANT**: Always check for a .gitignore file and ensure sensitive files are not committed.
 
-## Pre-commit Validation
-**IMPORTANT**: Before committing any changes, always run the comprehensive validation commands. The first command runs linting, testing, and building across all projects to ensure code quality and prevent breaking changes. The second command runs end to end tests. Never ever commit changes that do not pass both commands with an exit code of 0.
+**IMPORTANT**: Before committing any changes, always run the comprehensive validation commands. Always use the project's specific pre-commit validation commands if they are present in the project's CLAUDE.md. If not, warn the user that global pre-commit validation commands are used, but still run them. Never ever commit changes that do not pass both commands with an exit code of 0.
+
+### Pre-commit Validation Commands
+Always use the project's specific pre-commit validation commands if they are present in the project's CLAUDE.md. If not available, use appropriate commands for the project's ecosystem.
+
+Example validation commands for Node.js projects:
+```bash
+npm run lint && npm run test && npm run build
+```
+
+Example validation commands for an Nx Monorepo. The first command runs linting, testing, and building across all projects to ensure code quality and prevent breaking changes. The second command runs end to end tests.
 
 ```bash
 npx nx run-many -t lint,test,build
 npm run e2e
 ```
 
-## Frontend UX Guidelines (Ignore if not in a frontend project)
-Always follow the latest UX patterns to build accessible, usable web applications.
-[UX Pattern Index](https://uxpatterns.dev/en/llms.txt)
-[Full UX Pattern Reference](https://uxpatterns.dev/en/llms-full.txt)
+## Language-Specific Guidelines
+Read and understand .claude-templates/languages/CLAUDE.[language].md for language-specific guidance if available (e.g., CLAUDE.typescript.md, CLAUDE.python.md, CLAUDE.java.md).
 
-## Common Node.js Commands (Ignore if not in Node.js project)
-Check package.json for available scripts. Common development commands include:
-- `npm run dev` / `npm start` - Start development server
-- `npm run build` - Build for production
-- `npm run test` - Run tests
+## Framework-Specific Guidelines
+Read and understand .claude-templates/frameworks/CLAUDE.[framework].md for framework-specific guidance if available (e.g., CLAUDE.angular.md, CLAUDE.react.md, CLAUDE.vue.md, CLAUDE.django.md).
 
-## Angular Guidelines (Ignore if not in Angular project)
-Read and understand .claude-templates/CLAUDE.angular.md for further reference.
+## Domain-Specific Guidelines
+Read and understand .claude-templates/domains/CLAUDE.[domain].md for domain-specific guidance if available (e.g., CLAUDE.frontend.md, CLAUDE.mobile.md, CLAUDE.desktop.md).
 
-## Use Nx MCP Server (Ignore if not in Nx Monorepo)
-Read and understand .github/instructions/nx.instructions.md to familiarize yourself with the Nx MCP server that you have access to. If you do not have access to the MCP server yet, prompt the user to run the following command to add it after enabling it in Nx Console: `claude mcp add -t http nx-mcp http://localhost:9332/mcp`.
+## MCP Server Guidelines
+Read and understand .claude-templates/mcp-servers/CLAUDE.[server].md for MCP server-specific guidance if available (e.g., CLAUDE.nx.md, CLAUDE.filesystem.md).
+
