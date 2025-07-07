@@ -2,14 +2,14 @@
 
 <!--
 Installation:
-- Global (Claude Code): `export CLAUDE_ADDITIONAL_DIRS="/path/to/claude-templates"`
+- Global (Claude Code): copy this file to ~/.claude/CLAUDE.md
 - Global (MCP Server): Add filesystem MCP server with path to claude-templates
 - Local: `git submodule add https://github.com/tehw0lf/claude-templates.git`
 
 Usage:
-- Copy this file to your project root as CLAUDE.md
-- Run /init to append project-specific information
-- Add your project's pre-commit validation commands
+- Copy this file to your project root as CLAUDE.md - skip if installed globally
+- Run /init to append or create project-specific information
+- Add your project's pre-commit validation commands as seen below (sans "Example")
 -->
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository. 
