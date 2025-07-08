@@ -7,7 +7,8 @@ Installation:
 - Local: `git submodule add https://github.com/tehw0lf/claude-templates.git`
 
 Usage:
-- Copy this file to your project root as CLAUDE.md - skip if installed globally
+- Copy this file to your project root as CLAUDE.md - only needed for submodule usage
+- Update <path-to-claude-templates> placeholders with actual path to claude-templates (e.g. "~/coding/claude-templates" for global installation or ".claude-templates" for submodule installation)
 - Run /init to append or create project-specific information
 - Add your project's pre-commit validation commands as seen below (sans "Example")
 -->
@@ -50,17 +51,17 @@ mvn clean compile test package
 
 ## Language-Specific Guidelines
 Language conventions, best practices, and tooling guidance.
-Read .claude-templates/languages/CLAUDE.[language].md if available (e.g., CLAUDE.typescript.md, CLAUDE.python.md, CLAUDE.java.md).
+Read <path-to-claude-templates>/languages/CLAUDE.[language].md if available (e.g., CLAUDE.typescript.md, CLAUDE.python.md, CLAUDE.java.md).
 
 ## Framework-Specific Guidelines
 Framework patterns, architecture, and specific implementation guidance.
-Read .claude-templates/frameworks/CLAUDE.[framework].md if available (e.g., CLAUDE.angular.md, CLAUDE.react.md, CLAUDE.vue.md, CLAUDE.django.md).
+Read <path-to-claude-templates>/frameworks/CLAUDE.[framework].md if available (e.g., CLAUDE.angular.md, CLAUDE.react.md, CLAUDE.vue.md, CLAUDE.django.md).
 
 ## Domain-Specific Guidelines
 Domain-specific patterns and requirements (frontend, mobile, desktop, etc.).
-Read .claude-templates/domains/CLAUDE.[domain].md if available (e.g., CLAUDE.frontend.md, CLAUDE.mobile.md, CLAUDE.desktop.md).
+Read <path-to-claude-templates>/domains/CLAUDE.[domain].md if available (e.g., CLAUDE.frontend.md, CLAUDE.mobile.md, CLAUDE.desktop.md).
 
 ## MCP Server Guidelines
 MCP server integration and tooling guidance.
-Read .claude-templates/mcp-servers/CLAUDE.[server].md if available (e.g., CLAUDE.nx.md, CLAUDE.filesystem.md).
+Read <path-to-claude-templates>/mcp-servers/CLAUDE.[server].md if available (e.g., CLAUDE.nx.md, CLAUDE.filesystem.md).
 
